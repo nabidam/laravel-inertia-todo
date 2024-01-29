@@ -5,9 +5,7 @@ const Home = () => {
     return (
         <Layout>
             <Head title="Welcome" />
-            <h1 className="font-semibold text-xl text-gray-800 leading-tight">
-                Welcome
-            </h1>
+            <div className="bg-accent h-1/2 w-1/2 rounded-2xl"></div>
         </Layout>
     );
 };

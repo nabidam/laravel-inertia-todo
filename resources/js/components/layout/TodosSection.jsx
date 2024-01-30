@@ -1,13 +1,34 @@
-import { HandPointing } from "@phosphor-icons/react";
+import { HandPointing, Trash } from "@phosphor-icons/react";
 import NewTodoForm from "../ui/forms/NewTodoForm";
 import Todo from "../ui/todos/Todo";
 import TodoList from "../ui/todos/TodoList";
+import { Button } from "../ui/button";
+import { router } from "@inertiajs/react";
+import { toast } from "sonner";
 
 const TodosSection = ({ todos, project }) => {
+    const deleteProject = (id) => {
+        router.delete(`/projects/${project.id}`);
+        toast.success("Project deleted successfully.");
+    };
     return (
         <div className="flex flex-col gap-2">
             <div className="p-6 w-full text-center">
                 <h2 className="font-bold text-lg">Todos</h2>
+                {project && (
+                    <div className="flex w-full justify-center items-center gap-2">
+                        <p className="text-xs text-muted-foreground">
+                            of project: {project.title}
+                        </p>
+                        <Button
+                            className="px-1 py-1 h-6 text-xs"
+                            variant="destructive"
+                            onClick={() => deleteProject(project.id)}
+                        >
+                            Delete project
+                        </Button>
+                    </div>
+                )}
             </div>
             {todos ? (
                 <>

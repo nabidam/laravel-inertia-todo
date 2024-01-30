@@ -41,4 +41,13 @@ class ProjectController extends Controller
             "id" => $project->id
         ]);
     }
+
+    public function delete(Request $request, $id)
+    {
+        $project = Project::findOrFail($id);
+
+        $project->delete();
+
+        return to_route('home');
+    }
 }

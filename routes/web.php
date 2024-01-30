@@ -17,12 +17,13 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::prefix('projects')->group(function () {
     Route::get('/', [ProjectController::class, 'index'])->name('projects');
     Route::get('/{id}', [ProjectController::class, 'show'])->name('projects.show');
+    Route::delete('/{id}', [ProjectController::class, 'delete'])->name('projects.delete');
     Route::post('/', [ProjectController::class, 'create'])->name('projects.create');
 
     Route::prefix('/{id}/todos')->group(function () {

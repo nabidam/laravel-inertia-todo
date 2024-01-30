@@ -12,7 +12,7 @@ import NewProjectForm from "../forms/NewProjectForm";
 const NewProjectDialog = () => {
     return (
         <Dialog>
-            <DialogTrigger>
+            <DialogTrigger asChild>
                 <div className="rounded-full cursor-pointer">
                     <PlusCircle size={24} className="text-green-500" />
                 </div>

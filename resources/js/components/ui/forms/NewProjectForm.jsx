@@ -11,6 +11,8 @@ import {
 } from "../form";
 import { Button } from "../button";
 import { toast } from "sonner";
+import axios from "axios";
+import { router } from "@inertiajs/react";
 
 const NewProjectForm = () => {
     const form = useForm({
@@ -19,10 +21,24 @@ const NewProjectForm = () => {
         },
     });
 
-    const onSubmit = (data) => {
-        console.log({ data });
-        toast("project saved.");
-        form.reset();
+    const onSubmit = async (data) => {
+        if (data.project.length < 3) {
+            toast.error("Please type your project name.");
+            return;
+        }
+
+        try {
+            router.post("/projects", data);
+            // const res = await axios.post("/projects/", data);
+            // const project = res.data.project;
+            toast.success("Project created successfully. Close the dialog.");
+            form.reset();
+        } catch (error) {
+            console.error(error);
+            toast.error(
+                "Error: " + error.message + ". " + error.response.data.message
+            );
+        }
     };
     return (
         <Form {...form}>

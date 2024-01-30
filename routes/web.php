@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -14,6 +16,11 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Home');
+Route::get('/', [HomeController::class, 'index']);
+
+
+Route::prefix('projects')->group(function () {
+    Route::get('/', [ProjectController::class, 'index'])->name('projects');
+    Route::get('/{id}', [ProjectController::class, 'show'])->name('projects.show');
+    Route::post('/', [ProjectController::class, 'create'])->name('projects.create');
 });

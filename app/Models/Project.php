@@ -19,4 +19,14 @@ class Project extends Model
     {
         return $this->hasMany(Todo::class, 'project_id');
     }
+
+    public function pendingTodos(): HasMany
+    {
+        return $this->hasMany(Todo::class, 'project_id')->where('done', false);
+    }
+
+    public function doneTodos(): HasMany
+    {
+        return $this->hasMany(Todo::class, 'project_id')->where('done', true);
+    }
 }

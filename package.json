@@ -17,6 +17,7 @@
         "@hookform/resolvers": "^3.3.4",
         "@inertiajs/react": "^1.0.14",
         "@phosphor-icons/react": "^2.0.15",
+        "@radix-ui/react-dialog": "^1.0.5",
         "@radix-ui/react-dropdown-menu": "^2.0.6",
         "@radix-ui/react-label": "^2.0.2",
         "@radix-ui/react-scroll-area": "^1.0.5",

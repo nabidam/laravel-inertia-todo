@@ -3,7 +3,7 @@ import NewTodoForm from "../ui/forms/NewTodoForm";
 import Todo from "../ui/todos/Todo";
 import TodoList from "../ui/todos/TodoList";
 
-const TodosSection = ({ todos }) => {
+const TodosSection = ({ todos, project }) => {
     return (
         <div className="flex flex-col gap-2">
             <div className="p-6 w-full text-center">
@@ -12,31 +12,25 @@ const TodosSection = ({ todos }) => {
             {todos ? (
                 <>
                     <div>
-                        <NewTodoForm />
+                        <NewTodoForm project={project} />
                     </div>
-                    {todos.length ? (
-                        todos.map((todo) => (
-                            <div key={todo.id}>
-                                <TodoList>
-                                    <Todo done={false}>Drink water</Todo>
-                                    <Todo done={false}>Drink water</Todo>
-                                    <Todo done={false}>Drink water</Todo>
-                                    <Todo done={false}>Drink water</Todo>
-                                    <Todo done={false}>Drink water</Todo>
-                                    <Todo done={true}>Buy Cake</Todo>
-                                    <Todo done={true}>Buy Cake</Todo>
-                                    <Todo done={true}>Buy Cake</Todo>
-                                    <Todo done={true}>Buy Cake</Todo>
-                                    <Todo done={true}>Buy Cake</Todo>
-                                </TodoList>
-                            </div>
-                        ))
-                    ) : (
-                        <div className="flex flex-row gap-4 justify-center items-center text-sm text-muted-foreground text-center w-56 mx-auto mt-4">
-                            Add your first todo{" "}
-                            <HandPointing size={24} className="bounce" />
-                        </div>
-                    )}
+                    <div>
+                        <TodoList>
+                            {todos.length ? (
+                                todos.map((todo) => (
+                                    <Todo todo={todo} key={todo.id} />
+                                ))
+                            ) : (
+                                <div className="flex flex-row gap-4 justify-center items-center text-sm text-muted-foreground text-center w-56 mx-auto mt-4">
+                                    Add your first todo{" "}
+                                    <HandPointing
+                                        size={24}
+                                        className="bounce"
+                                    />
+                                </div>
+                            )}
+                        </TodoList>
+                    </div>
                 </>
             ) : (
                 <>

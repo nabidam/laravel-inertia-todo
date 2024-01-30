@@ -11,8 +11,9 @@ import {
 } from "../form";
 import { Button } from "../button";
 import { toast } from "sonner";
+import { router } from "@inertiajs/react";
 
-const NewTodoForm = () => {
+const NewTodoForm = ({ project }) => {
     const form = useForm({
         defaultValues: {
             todo: "",
@@ -20,9 +21,21 @@ const NewTodoForm = () => {
     });
 
     const onSubmit = (data) => {
-        console.log({ data });
-        toast("Todo saved.");
-        form.reset();
+        if (data.todo.length < 3) {
+            toast.error("Please type your project name.");
+            return;
+        }
+
+        try {
+            router.post(`/projects/${project.id}/todos`, data);
+            toast.success("Todo added successfully.");
+            form.reset();
+        } catch (error) {
+            console.error(error);
+            toast.error(
+                "Error: " + error.message + ". " + error.response.data.message
+            );
+        }
     };
     return (
         <Form {...form}>

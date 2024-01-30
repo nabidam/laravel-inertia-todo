@@ -11,7 +11,6 @@ import {
 } from "../form";
 import { Button } from "../button";
 import { toast } from "sonner";
-import axios from "axios";
 import { router } from "@inertiajs/react";
 
 const NewProjectForm = () => {
@@ -29,8 +28,6 @@ const NewProjectForm = () => {
 
         try {
             router.post("/projects", data);
-            // const res = await axios.post("/projects/", data);
-            // const project = res.data.project;
             toast.success("Project created successfully. Close the dialog.");
             form.reset();
         } catch (error) {

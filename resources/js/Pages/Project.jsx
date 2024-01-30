@@ -23,7 +23,7 @@ const Home = ({ projects, project }) => {
                         projects={projects}
                         selectedProject={project}
                     />
-                    <TodosSection todos={project.todos} />
+                    <TodosSection todos={project.todos} project={project} />
                 </div>
             </div>
         </Layout>

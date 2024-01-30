@@ -1,3 +1,4 @@
+import { Badge } from "../ui/badge";
 import NewProjectDialog from "../ui/dialogs/NewProjectDialog";
 import List from "../ui/list/List";
 import ListItem from "../ui/list/ListItem";

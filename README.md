@@ -2,6 +2,8 @@
 
 This is an example of using Laravel v10.x with InertiaJS and ReactJS as it's frontend framework.
 
+demo: https://todo.navidam.ir
+
 ## Used modules and packages
 1. Laravel
 2. InertiaJS
@@ -10,3 +12,6 @@ This is an example of using Laravel v10.x with InertiaJS and ReactJS as it's fro
 5. ShadCN
 6. react-hook-form
 7. phosphor-icons
+
+## Todos
+- [ ] responsive design

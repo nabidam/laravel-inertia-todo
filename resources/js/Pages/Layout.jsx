@@ -1,5 +1,5 @@
-import { ThemeProvider } from "@/components/theme-provider";
 import { Link } from "@inertiajs/react";
+import { ThemeProvider } from "../components/theme-provider";
 import { ModeToggle } from "../components/mode-toggle";
 
 const Layout = ({ children }) => {

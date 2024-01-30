@@ -28,7 +28,7 @@ const ProjectsSection = ({ projects, selectedProject = null }) => {
                                 >
                                     {project.title}{" "}
                                     {project.pending_todos_count ? (
-                                        <Badge variant="destructive">
+                                        <Badge className="bg-red-500 text-white">
                                             {project.pending_todos_count}
                                         </Badge>
                                     ) : (

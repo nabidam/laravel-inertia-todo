@@ -1,7 +1,8 @@
-import { Link } from "@inertiajs/react";
 import { ThemeProvider } from "../components/theme-provider";
 import { ModeToggle } from "../components/mode-toggle";
 import { Toaster } from "../components/ui/sonner";
+import { Heart } from "lucide-react";
+import CopyRight from "../components/ui/CopyRight";
 
 const Layout = ({ children }) => {
     return (
@@ -10,11 +11,12 @@ const Layout = ({ children }) => {
                 <div className="absolute right-6 top-6">
                     <ModeToggle />
                 </div>
-                <div className="container min-h-dvh flex flex-col justify-center items-center">
+                <div className="container min-h-[1000px] flex flex-col justify-center items-center">
                     {children}
                 </div>
                 <Toaster />
             </div>
+            <CopyRight />
         </ThemeProvider>
     );
 };
